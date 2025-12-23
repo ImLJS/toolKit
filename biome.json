@@ -43,6 +43,10 @@
 						"functions": ["clsx", "cva", "cn"]
 					}
 				}
+			},
+			"a11y": {
+				"useSemanticElements": "off",
+				"useKeyWithClickEvents": "off"
 			}
 		}
 	},
