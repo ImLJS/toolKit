@@ -1,5 +1,7 @@
-import { createFileRoute } from "@tanstack/react-router";
+import { createFileRoute, Link } from "@tanstack/react-router";
+import { ArrowLeft } from "lucide-react";
 import { lazy, Suspense } from "react";
+import { InfoButton } from "@/components/common/info-button";
 import { TOOLS } from "@/constants/tools";
 
 export const Route = createFileRoute("/tools/$toolName")({
@@ -15,11 +17,21 @@ function ToolComponent() {
 	const LazyTool = getToolComponent(toolName);
 	return (
 		<div className="container mx-auto">
-			<div className="mb-6 border-b py-4">
+			<div className="border-b py-4">
 				<h1 className="mb-2 text-center font-bold text-3xl">{tool.name}</h1>
 				<p className="text-center text-lg text-muted-foreground">
 					{tool.description}
 				</p>
+			</div>
+			<div className="container mb-6 flex items-center justify-between border-b px-2 py-3">
+				<Link
+					className="inline-flex items-center text-muted-foreground text-sm transition-colors hover:text-foreground"
+					to="/"
+				>
+					<ArrowLeft className="mr-2 h-4 w-4" />
+					Back to Tools
+				</Link>
+				<InfoButton tool={tool} />
 			</div>
 			<Suspense fallback={<div>Loading tool…</div>}>
 				<LazyTool />

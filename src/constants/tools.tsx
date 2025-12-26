@@ -3,6 +3,7 @@ export const TOOLS = [
 		id: 1,
 		name: "JSON Formatter",
 		description: "Format and beautify JSON data.",
+		info: "This tool helps you format and validate JSON data. Paste your JSON string in the input field, and it will parse and display it in a nicely indented, readable format. It also validates the JSON and shows errors if the input is invalid.",
 		url: "/tools/json-formatter",
 		tags: ["json"],
 		image:
@@ -12,6 +13,7 @@ export const TOOLS = [
 		id: 2,
 		name: "Base64 Encoder & Decoder",
 		description: "Encode and decode Base64 strings.",
+		info: "Base64 encoding converts binary data into a text format using 64 characters. This tool allows you to encode text into Base64 or decode Base64 back to text. Useful for handling data in formats that require text-only transmission.",
 		url: "/tools/base64",
 		tags: ["encoder", "decoder", "base64"],
 		category: "encoders",
@@ -23,6 +25,7 @@ export const TOOLS = [
 		name: "URL Encoder",
 		description:
 			"Encode URLs for safe transmission or decode back to readable format.",
+		info: "URL encoding replaces unsafe characters in URLs with percent-encoded equivalents. This tool encodes URLs to make them safe for web transmission or decodes them back to readable form. Essential for handling URLs with special characters or spaces.",
 		url: "/tools/url-encoder",
 		tags: ["url", "encoder", "decoder"],
 		category: "encoders",
