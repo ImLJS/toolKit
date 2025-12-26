@@ -10,9 +10,9 @@ export const TOOLS = [
 	},
 	{
 		id: 2,
-		name: "XML Validator",
-		description: "Validate and format XML files.",
-		url: "/tools/xml-validator",
+		name: "Base64 Encoder & Decoder",
+		description: "Encode and decode Base64 strings.",
+		url: "/tools/base64",
 		tags: ["xml"],
 		image:
 			"https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1280&h=832&fit=crop",
