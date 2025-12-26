@@ -13,16 +13,19 @@ export const TOOLS = [
 		name: "Base64 Encoder & Decoder",
 		description: "Encode and decode Base64 strings.",
 		url: "/tools/base64",
-		tags: ["xml"],
+		tags: ["encoder", "decoder", "base64"],
+		category: "encoders",
 		image:
 			"https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1280&h=832&fit=crop",
 	},
 	{
 		id: 3,
-		name: "CSV to JSON Converter",
-		description: "Convert CSV files to JSON format.",
-		url: "/tools/csv-converter",
-		tags: ["csv", "json"],
+		name: "URL Encoder",
+		description:
+			"Encode URLs for safe transmission or decode back to readable format.",
+		url: "/tools/url-encoder",
+		tags: ["url", "encoder", "decoder"],
+		category: "encoders",
 		image:
 			"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1280&h=832&fit=crop",
 	},

@@ -27,7 +27,6 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
 	return (
 		<Link className="block h-full" to={tool.url}>
 			<Card className="group relative flex h-full flex-col overflow-hidden rounded-2xl p-0 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
-				{/* Image Container with Overlay */}
 				<div className="relative h-48 w-full overflow-hidden">
 					<div className="absolute inset-0 z-10 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
 					<Image
@@ -38,7 +37,6 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
 						width={1280}
 					/>
 
-					{/* Floating Action Buttons */}
 					<div className="absolute top-3 right-3 z-20 flex gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 						<Button
 							aria-label="Like"
@@ -80,7 +78,6 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
 					</div>
 				</div>
 
-				{/* Content */}
 				<div className="flex flex-1 flex-col p-5">
 					<CardHeader className="mb-3 p-0">
 						<CardTitle className="mb-2 font-semibold text-xl transition-colors group-hover:text-[#FF8C42]">
@@ -91,7 +88,6 @@ export const ToolCard = ({ tool }: { tool: Tool }) => {
 						</CardDescription>
 					</CardHeader>
 
-					{/* Tags */}
 					<div className="mt-auto flex flex-wrap gap-2">
 						{tool.tags.map((tag) => (
 							<Badge
