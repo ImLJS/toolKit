@@ -24,7 +24,7 @@ function App() {
 			<FilterBadges />
 			<div className="grid gap-6 p-3 sm:grid-cols-2 lg:grid-cols-3">
 				{filteredTools.map((tool) => (
-					<ToolCard key={tool.id} tool={tool} />
+					<ToolCard category={category} key={tool.id} tool={tool} />
 				))}
 			</div>
 		</>

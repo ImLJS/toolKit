@@ -20,12 +20,18 @@ interface Tool {
 	image: string;
 }
 
-export const ToolCard = ({ tool }: { tool: Tool }) => {
+export const ToolCard = ({
+	tool,
+	category,
+}: {
+	tool: Tool;
+	category: string;
+}) => {
 	const [isLiked, setIsLiked] = useState(false);
 	const [isFavorited, setIsFavorited] = useState(false);
 
 	return (
-		<Link className="block h-full" to={tool.url}>
+		<Link className="block h-full" search={{ category }} to={tool.url}>
 			<Card className="group relative flex h-full flex-col overflow-hidden rounded-2xl p-0 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-xl">
 				<div className="relative h-48 w-full overflow-hidden">
 					<div className="absolute inset-0 z-10 bg-black/40 opacity-0 transition-opacity duration-300 group-hover:opacity-100" />
