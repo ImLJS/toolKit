@@ -6,6 +6,7 @@ export const TOOLS = [
 		info: "This tool helps you format and validate JSON data. Paste your JSON string in the input field, and it will parse and display it in a nicely indented, readable format. It also validates the JSON and shows errors if the input is invalid.",
 		url: "/tools/json-formatter",
 		tags: ["json"],
+		category: "formatters",
 		image:
 			"https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=1280&h=832&fit=crop",
 	},
