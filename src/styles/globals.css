@@ -1,0 +1,57 @@
+@import "tailwindcss" source("../");
+
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/dm-sans";
+@import "./config.css";
+@import "./utilities.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@layer base {
+	*,
+	::after,
+	::before,
+	::backdrop,
+	::file-selector-button {
+		border-color: var(--color-border, currentColor);
+	}
+
+	html {
+		scroll-behavior: smooth;
+		scrollbar-width: thin;
+	}
+
+	body {
+		@apply bg-background text-foreground min-w-full!;
+	}
+
+	h1,
+	h2,
+	h3,
+	h4,
+	h5,
+	h6 {
+		@apply font-sans;
+	}
+
+	::selection {
+		@apply bg-link text-primary-foreground;
+	}
+
+	::-webkit-scrollbar {
+		@apply w-2;
+	}
+
+	::-webkit-scrollbar-track {
+		@apply bg-background;
+	}
+
+	::-webkit-scrollbar-thumb {
+		@apply bg-muted-foreground/50 rounded-full;
+	}
+
+	::-webkit-scrollbar-thumb:hover {
+		@apply bg-muted-foreground;
+	}
+}
