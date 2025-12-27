@@ -33,4 +33,37 @@ export const TOOLS = [
 		image:
 			"https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1280&h=832&fit=crop",
 	},
+	{
+		id: 4,
+		name: "UUID Generator",
+		description: "Generate unique UUIDs (v4).",
+		info: "This tool generates universally unique identifiers (UUIDs) using version 4, which are randomly generated. UUIDs are 128-bit numbers used to uniquely identify information in computer systems.",
+		url: "/tools/uuid-generator",
+		tags: ["uuid", "generator", "random"],
+		category: "generators",
+		image:
+			"https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 5,
+		name: "Hash Generator",
+		description: "Generate SHA-1, SHA-256, and SHA-512 hashes.",
+		info: "This tool generates cryptographic hash values using various algorithms including SHA-1, SHA-256, and SHA-512. Hash functions are one-way functions that convert input data of any size into a fixed-size string of characters.",
+		url: "/tools/hash-generator",
+		tags: ["hash", "sha", "crypto"],
+		category: "generators",
+		image:
+			"https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 6,
+		name: "Text Case Converter",
+		description: "Convert text between different cases.",
+		info: "This tool allows you to convert text between different case formats including uppercase, lowercase, title case, camel case, pascal case, snake case, and kebab case. Useful for formatting text according to different programming conventions.",
+		url: "/tools/text-case-converter",
+		tags: ["text", "case", "converter", "format"],
+		category: "formatters",
+		image:
+			"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1280&h=832&fit=crop",
+	},
 ];

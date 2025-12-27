@@ -9,15 +9,17 @@ interface Examples {
 }
 
 interface UseToolProcessorOptions {
-	processor: (input: string, mode?: Mode) => string;
+	processor: (input: string, mode?: Mode) => string | Promise<string>;
 	initialMode?: Mode;
 	examples: Examples;
+	autoProcess?: boolean;
 }
 
 export const useToolProcessor = ({
 	processor,
 	initialMode,
 	examples,
+	autoProcess = false,
 }: UseToolProcessorOptions) => {
 	const [mode, setMode] = useState<Mode | undefined>(initialMode);
 	const [input, setInput] = useState("");
@@ -25,9 +27,9 @@ export const useToolProcessor = ({
 	const [error, setError] = useState("");
 	const [copied, setCopied] = useState(false);
 
-	const process = useCallback(() => {
+	const process = useCallback(async () => {
 		try {
-			const result = processor(input, mode);
+			const result = await processor(input, mode);
 			setOutput(result);
 			setError("");
 		} catch (err) {
@@ -35,6 +37,12 @@ export const useToolProcessor = ({
 			setOutput("");
 		}
 	}, [input, mode, processor]);
+
+	useEffect(() => {
+		if (autoProcess && output && input) {
+			process();
+		}
+	}, [autoProcess, input, output, process]);
 
 	const copyToClipboard = async () => {
 		try {

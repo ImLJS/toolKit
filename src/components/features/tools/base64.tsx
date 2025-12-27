@@ -37,6 +37,7 @@ const Base64Tool = () => {
 		processor,
 		initialMode: "encode",
 		examples,
+		autoProcess: true,
 	});
 
 	return (
