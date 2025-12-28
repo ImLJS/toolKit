@@ -1,32 +1,42 @@
-import { AlertCircle, ArrowRight, Check, Copy } from "lucide-react";
+import { ArrowLeftRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
 import { Textarea } from "@/components/ui/textarea";
 import { useToolProcessor } from "@/hooks/useToolProcessor";
 
-type Mode = "encode" | "decode";
-
-const processor = (input: string, mode?: Mode) => {
+const processor = (input: string, mode?: "encode" | "decode"): string => {
 	if (mode === "encode") {
-		return btoa(input);
+		return input
+			.replace(/&/g, "&amp;")
+			.replace(/</g, "&lt;")
+			.replace(/>/g, "&gt;")
+			.replace(/"/g, "&quot;")
+			.replace(/'/g, "&#39;")
+			.replace(/\//g, "&#x2F;");
 	} else {
-		return atob(input);
+		return input
+			.replace(/&lt;/g, "<")
+			.replace(/&gt;/g, ">")
+			.replace(/&quot;/g, '"')
+			.replace(/&#39;/g, "'")
+			.replace(/&#x2F;/g, "/")
+			.replace(/&amp;/g, "&");
 	}
 };
 
 const examples = {
-	encode: "Hello, World!",
-	decode: "SGVsbG8sIFdvcmxkIQ==",
+	encode: '<div class="example">Hello & Welcome!</div>',
+	decode:
+		"&lt;div class=&quot;example&quot;&gt;Hello &amp; Welcome!&lt;/div&gt;",
 };
 
-const Base64Tool = () => {
+const HtmlEntitiesEncoderTool = () => {
 	const {
 		mode,
 		setMode,
 		input,
 		setInput,
 		output,
-		error,
 		copied,
 		process,
 		copyToClipboard,
@@ -37,13 +47,12 @@ const Base64Tool = () => {
 		processor,
 		initialMode: "encode",
 		examples,
-		autoProcess: true,
 	});
 
 	return (
 		<div className="space-y-6">
-			<div className="flex justify-center">
-				<div className="inline-flex rounded-lg border bg-muted p-1">
+			<div className="flex justify-center px-2">
+				<div className="inline-flex rounded-lg border p-1">
 					<Button
 						className="rounded-md"
 						onClick={() => setMode("encode")}
@@ -66,9 +75,7 @@ const Base64Tool = () => {
 			<div className="grid gap-6 px-2 lg:grid-cols-2">
 				<Card className="p-6">
 					<div className="mb-4 flex items-center justify-between">
-						<h2 className="font-semibold text-xl">
-							{mode === "encode" ? "Text to Encode" : "Base64 to Decode"}
-						</h2>
+						<h2 className="font-semibold text-xl">Input</h2>
 						<div className="flex gap-2">
 							<Button onClick={loadExample} size="sm" variant="ghost">
 								Example
@@ -84,8 +91,8 @@ const Base64Tool = () => {
 						onChange={(e) => setInput(e.target.value)}
 						placeholder={
 							mode === "encode"
-								? "Enter text to encode..."
-								: "Enter Base64 string to decode..."
+								? "Enter HTML to encode..."
+								: "Enter encoded HTML entities..."
 						}
 						value={input}
 					/>
@@ -93,22 +100,10 @@ const Base64Tool = () => {
 
 				<Card className="p-6">
 					<div className="mb-4 flex items-center justify-between">
-						<h2 className="font-semibold text-xl">
-							{mode === "encode" ? "Base64 Output" : "Decoded Text"}
-						</h2>
+						<h2 className="font-semibold text-xl">Output</h2>
 						{output && (
 							<Button onClick={copyToClipboard} size="sm" variant="outline">
-								{copied ? (
-									<>
-										<Check className="mr-1 h-4 w-4" />
-										Copied!
-									</>
-								) : (
-									<>
-										<Copy className="mr-1 h-4 w-4" />
-										Copy
-									</>
-								)}
+								{copied ? "Copied!" : "Copy"}
 							</Button>
 						)}
 					</div>
@@ -117,50 +112,34 @@ const Base64Tool = () => {
 						className="min-h-125 bg-muted font-mono text-sm"
 						placeholder={
 							mode === "encode"
-								? "Encoded Base64 will appear here..."
-								: "Decoded text will appear here..."
+								? "Encoded HTML entities will appear here..."
+								: "Decoded HTML will appear here..."
 						}
 						readOnly
 						value={output}
 					/>
-
-					{/* Error Message */}
-					{error && (
-						<div className="mt-4 flex items-start gap-2 rounded-lg bg-destructive/10 p-3 text-destructive text-sm">
-							<AlertCircle className="h-5 w-5 shrink-0" />
-							<span>{error}</span>
-						</div>
-					)}
 				</Card>
 			</div>
 
 			<div className="flex justify-center gap-3 px-2">
+				<Button onClick={swapMode} size="lg" variant="outline">
+					<ArrowLeftRight className="mr-2 h-5 w-5" />
+					Swap
+				</Button>
 				<Button
 					className="w-full max-w-xs"
 					disabled={!input}
 					onClick={process}
 					size="lg"
-					variant="default"
 				>
 					{mode === "encode" ? "Encode" : "Decode"}
 					<kbd className="ml-2 hidden rounded bg-primary-foreground/20 px-1.5 py-0.5 font-mono text-xs sm:inline-block">
 						⌘↵
 					</kbd>
 				</Button>
-
-				{output && (
-					<Button
-						onClick={swapMode}
-						size="lg"
-						title={`Switch to ${mode === "encode" ? "decode" : "encode"} mode`}
-						variant="outline"
-					>
-						<ArrowRight className="h-5 w-5" />
-					</Button>
-				)}
 			</div>
 		</div>
 	);
 };
 
-export default Base64Tool;
+export default HtmlEntitiesEncoderTool;
