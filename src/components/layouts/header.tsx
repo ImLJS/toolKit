@@ -8,7 +8,11 @@ export const Header = () => {
 	return (
 		<header className="flex h-16 items-center justify-between border-b px-4">
 			<Button className="rounded-full" variant="outline">
-				<Link className="flex shrink-0 items-center" to="/">
+				<Link
+					className="flex shrink-0 items-center"
+					search={{ category: "all" }}
+					to="/"
+				>
 					LJ
 				</Link>
 			</Button>
@@ -16,7 +20,12 @@ export const Header = () => {
 				<CommandMenu />
 				<ThemeToggle />
 				<Button size={"icon"} variant="ghost">
-					<a href="/">
+					<a
+						aria-label="GitHub Repository"
+						href="https://github.com/ImLJS/toolKit"
+						rel="noreferrer"
+						target="_blank"
+					>
 						<FaGithub size={18} />
 					</a>
 				</Button>
