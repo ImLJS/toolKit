@@ -66,4 +66,70 @@ export const TOOLS = [
 		image:
 			"https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1280&h=832&fit=crop",
 	},
+	{
+		id: 7,
+		name: "Lorem Ipsum Generator",
+		description: "Generate placeholder text for your designs.",
+		info: "Generate Lorem Ipsum placeholder text with customizable paragraph count and words per paragraph. Perfect for mockups, wireframes, and testing layouts.",
+		url: "/tools/lorem-ipsum-generator",
+		tags: ["lorem", "ipsum", "text", "generator", "placeholder"],
+		category: "generators",
+		image:
+			"https://images.unsplash.com/photo-1455390582262-044cdead277a?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 8,
+		name: "Color Converter",
+		description: "Convert between HEX, RGB, and HSL color formats.",
+		info: "Convert colors between different formats including HEX, RGB, and HSL. Includes a visual preview of the color and all conversion formats.",
+		url: "/tools/color-converter",
+		tags: ["color", "hex", "rgb", "hsl", "converter"],
+		category: "converters",
+		image:
+			"https://images.unsplash.com/photo-1541701494587-cb58502866ab?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 9,
+		name: "Timestamp Converter",
+		description: "Convert between Unix timestamps and dates.",
+		info: "Convert Unix timestamps to human-readable dates and vice versa. Shows current time in multiple formats including ISO 8601, UTC, and local time.",
+		url: "/tools/timestamp-converter",
+		tags: ["timestamp", "date", "time", "unix", "converter"],
+		category: "converters",
+		image:
+			"https://images.unsplash.com/photo-1501139083538-0139583c060f?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 10,
+		name: "JWT Decoder",
+		description: "Decode and inspect JWT tokens.",
+		info: "Decode JSON Web Tokens (JWT) to view header, payload, and signature. Shows expiration status and timestamp information. Note: This tool does not validate signatures.",
+		url: "/tools/jwt-decoder",
+		tags: ["jwt", "token", "decoder", "json", "auth"],
+		category: "decoders",
+		image:
+			"https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 11,
+		name: "HTML Entities Encoder",
+		description: "Encode or decode HTML entities.",
+		info: "Convert special characters to HTML entities or decode them back to regular characters. Useful for safely displaying HTML content and preventing XSS attacks.",
+		url: "/tools/html-entities",
+		tags: ["html", "entities", "encoder", "decoder", "escape"],
+		category: "encoders",
+		image:
+			"https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=1280&h=832&fit=crop",
+	},
+	{
+		id: 12,
+		name: "Regex Tester",
+		description: "Test and debug regular expressions.",
+		info: "Test regular expressions against sample text with support for all regex flags. See matches highlighted in context and detailed match information including capture groups.",
+		url: "/tools/regex-tester",
+		tags: ["regex", "regexp", "pattern", "test", "matcher"],
+		category: "testers",
+		image:
+			"https://images.unsplash.com/photo-1515879218367-8466d910aaa4?w=1280&h=832&fit=crop",
+	},
 ];

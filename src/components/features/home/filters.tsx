@@ -6,6 +6,10 @@ const CATEGORIES = [
 	{ id: "all", name: "All Tools" },
 	{ id: "formatters", name: "Formatters" },
 	{ id: "encoders", name: "Encoders" },
+	{ id: "decoders", name: "Decoders" },
+	{ id: "generators", name: "Generators" },
+	{ id: "converters", name: "Converters" },
+	{ id: "testers", name: "Testers" },
 ];
 
 export const FilterBadges = () => {

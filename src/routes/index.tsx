@@ -23,8 +23,18 @@ function App() {
 			<Hero />
 			<FilterBadges />
 			<div className="grid gap-6 p-3 sm:grid-cols-2 lg:grid-cols-3">
-				{filteredTools.map((tool) => (
-					<ToolCard category={category} key={tool.id} tool={tool} />
+				{filteredTools.map((tool, index) => (
+					<div
+						className="fade-in animate-in"
+						key={`${category}-${tool.id}`}
+						style={{
+							animationDuration: "0.5s",
+							animationDelay: `${index * 0.05}s`,
+							animationFillMode: "backwards",
+						}}
+					>
+						<ToolCard category={category} tool={tool} />
+					</div>
 				))}
 			</div>
 		</>
