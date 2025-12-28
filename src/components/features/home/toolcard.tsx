@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Image } from "@unpic/react";
-import { Heart, Star } from "lucide-react";
+import { Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import {
@@ -27,8 +27,7 @@ export const ToolCard = ({
 	tool: Tool;
 	category: string;
 }) => {
-	const { isLiked, isFavorited, toggleLike, toggleFavorite } = useFavorites();
-	const liked = isLiked(tool.id);
+	const { isFavorited, toggleFavorite } = useFavorites();
 	const favorited = isFavorited(tool.id);
 
 	return (
@@ -46,37 +45,18 @@ export const ToolCard = ({
 
 					<div className="absolute top-3 right-3 z-20 flex gap-2 opacity-0 transition-opacity duration-300 group-hover:opacity-100">
 						<Button
-							aria-label="Like"
-							className={`h-9 w-9 rounded-full backdrop-blur-md transition-all duration-200 ${
-								liked
-									? "bg-red-500 text-white hover:bg-red-600"
-									: "bg-background/90 hover:scale-110 hover:bg-background"
-							}`}
-							onClick={(e) => {
-								e.preventDefault();
-								e.stopPropagation();
-								toggleLike(tool.id);
-							}}
-							size="sm"
-							variant="ghost"
-						>
-							<Heart className={`h-4 w-4 ${liked ? "fill-current" : ""}`} />
-						</Button>
-
-						<Button
 							aria-label="Favourite"
-							className={`h-9 w-9 rounded-full backdrop-blur-md transition-all duration-200 ${
+							className={
 								favorited
-									? "bg-amber-500 text-white hover:bg-amber-600"
-									: "bg-background/90 hover:scale-110 hover:bg-background"
-							}`}
+									? "h-9 w-9 rounded-full border-0 bg-amber-500 text-white backdrop-blur-md transition-all duration-200 hover:bg-amber-600 hover:text-white"
+									: "h-9 w-9 rounded-full border-0 bg-background/90 text-foreground backdrop-blur-md transition-all duration-200 hover:scale-110 hover:bg-background/90 hover:text-foreground"
+							}
 							onClick={(e) => {
 								e.preventDefault();
 								e.stopPropagation();
 								toggleFavorite(tool.id);
 							}}
 							size="sm"
-							variant="ghost"
 						>
 							<Star className={`h-4 w-4 ${favorited ? "fill-current" : ""}`} />
 						</Button>

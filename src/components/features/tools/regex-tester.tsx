@@ -22,7 +22,6 @@ const RegexTesterTool = () => {
 				let match = regex.exec(testString);
 				while (match !== null) {
 					allMatches.push(match);
-					// Prevent infinite loops on zero-width matches
 					if (match.index === regex.lastIndex) {
 						regex.lastIndex++;
 					}

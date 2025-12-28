@@ -10,7 +10,7 @@ export const Header = () => {
 			<Button className="rounded-full" variant="outline">
 				<Link
 					className="flex shrink-0 items-center"
-					search={{ category: "all" }}
+					search={{ category: "all", filter: "all" }}
 					to="/"
 				>
 					LJ

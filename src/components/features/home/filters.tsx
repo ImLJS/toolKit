@@ -1,4 +1,5 @@
 import { useNavigate, useSearch } from "@tanstack/react-router";
+import { Star } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { cn } from "@/lib/utils";
 
@@ -13,12 +14,53 @@ const CATEGORIES = [
 ];
 
 export const FilterBadges = () => {
-	const { category } = useSearch({ from: "/" });
+	const { category, filter } = useSearch({ from: "/" });
 	const navigate = useNavigate({ from: "/" });
+
+	const handleCategoryClick = (categoryId: string) => {
+		navigate({ search: { category: categoryId, filter: filter || "all" } });
+	};
+
+	const handleFilterClick = (filterType: string) => {
+		navigate({ search: { category: category || "all", filter: filterType } });
+	};
 
 	return (
 		<div className="border-b bg-background/95 backdrop-blur">
 			<div className="container">
+				{/* Filter Type Toggles */}
+				<div className="flex justify-center gap-2 border-b py-3">
+					<Badge
+						className={cn(
+							"cursor-pointer p-4 transition-all hover:scale-105",
+							(!filter || filter === "all") &&
+								"bg-primary text-primary-foreground",
+						)}
+						onClick={() => handleFilterClick("all")}
+						variant="outline"
+					>
+						All Tools
+					</Badge>
+					<Badge
+						className={cn(
+							"cursor-pointer gap-1.5 p-4 transition-all hover:scale-105",
+							filter === "favorited" &&
+								"bg-amber-500 text-white hover:bg-amber-600",
+						)}
+						onClick={() => handleFilterClick("favorited")}
+						variant="outline"
+					>
+						<Star
+							className={cn(
+								"h-3.5 w-3.5",
+								filter === "favorited" && "fill-current",
+							)}
+						/>
+						Favorited
+					</Badge>
+				</div>
+
+				{/* Category Filters */}
 				<div className="scrollbar-hide flex flex-nowrap gap-2 overflow-x-auto py-4 md:flex-wrap md:justify-center md:overflow-x-visible">
 					{CATEGORIES.map((cat) => (
 						<Badge
@@ -29,7 +71,7 @@ export const FilterBadges = () => {
 									: "",
 							)}
 							key={cat.id}
-							onClick={() => navigate({ search: { category: cat.id } })}
+							onClick={() => handleCategoryClick(cat.id)}
 							variant={"outline"}
 						>
 							{cat.name}
