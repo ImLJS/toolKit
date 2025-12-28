@@ -102,7 +102,7 @@ bun run preview
 1. **Browse Tools:** Navigate through the homepage to see all available tools
 2. **Filter by Category:** Click on category badges to filter tools (Formatters, Encoders, Generators, etc.)
 3. **Quick Search:** Press `Cmd/Ctrl + K` to open the command menu and search for tools
-4. **Like & Favorite:** Hover over tool cards and click the heart or star icons to save your favorites
+4. **Like & Favorite:** Hover over tool cards and click the Star icons to save your favorites
 5. **Theme Toggle:** Click the theme toggle in the header to switch between dark and light mode
 
 ## 📁 Project Structure
@@ -138,10 +138,6 @@ Contributions are welcome! Feel free to:
 3. Commit your changes (`git commit -m 'Add some amazing tool'`)
 4. Push to the branch (`git push origin feature/amazing-tool`)
 5. Open a Pull Request
-
-## 📄 License
-
-This project is open source and available under the [MIT License](LICENSE).
 
 ## 🙏 Acknowledgments
 
